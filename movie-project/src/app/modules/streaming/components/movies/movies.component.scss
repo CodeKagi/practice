@@ -1,0 +1,13 @@
+.featured-content {
+  background-color: #414141;
+  transition: background-color 1s linear;
+  box-shadow: 0px 3px 5px 0px rgba(120, 120, 120, 1);
+  &__heading {
+    color: white;
+    font-size: 16px;
+    padding: 20px 0;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+  }
+}
