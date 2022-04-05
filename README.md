@@ -1,2 +1,4 @@
 # practice
 lazy loading
+
+## Details
