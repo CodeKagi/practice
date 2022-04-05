@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseAPIUrl: '../app/feed/sample.json'
+  baseAPIUrl: 'app/feed/sample.json'
 };
 
 /*

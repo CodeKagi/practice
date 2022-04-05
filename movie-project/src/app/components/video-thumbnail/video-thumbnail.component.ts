@@ -7,12 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class VideoThumbnailComponent implements OnInit {
   @Input() videoUrl: string;
-  @Input() videoType: string = 'series';
+  @Input() videoType: string;
   @Input() videoTitle: string;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log("program types are", this.videoType)
+  }
 
   getVideoRoute(videoType: string) {
     try {

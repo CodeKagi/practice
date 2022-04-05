@@ -22,8 +22,22 @@ export class VideoService {
   getVideos(): Observable<Video[]> {
     debugger
     return this.httpClient.get<Video[]>(this.apiUrl).pipe(map(response => {
-
-        console.log("data is", response);
       return response}))
+  }
+
+  filterProgramTypes(): Observable<Video[]> {
+    try {
+      return this.httpClient.get<Video[]>(this.apiUrl).pipe(map(response => {
+        if(response && response != null) {
+          const programTypes = response.filter((obj, pos, arr)=> {
+            return arr.map(videoObj => videoObj['programType']).indexOf(obj['programType']) === pos;
+          })
+          return programTypes
+        }}))
+    } catch (error) {
+      error.message = `Video-Service::filterProgramTypes() - ${error.message}`;
+      throw error
+    }
+
   }
 }
