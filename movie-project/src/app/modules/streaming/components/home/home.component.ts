@@ -3,6 +3,7 @@ import { Video } from 'src/app/models/video';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { VideoService } from '../../../../services/video.service';
+import { VideoData } from 'src/app/models/video-data';
 
 @Component({
   selector: 'app-home',
@@ -15,33 +16,17 @@ export class HomeComponent implements OnInit {
   videoList: Video[];
   hasHttpError: boolean = false;
 
-  videos = [
+  constructor() {}
+
+  videoType = [
     {
-      name: 'movies',
+      route: 'movies'
     },
-
     {
-      name: 'series',
-    },
-  ];
-  constructor(private videoService : VideoService) {}
-
-  ngOnInit(): void {
-     this.getAllVideos();
-  }
-
-  getAllVideos(): void {
-    try {
-      this.videoDataSubscription = this.videoService.filterProgramTypes().subscribe(response => {
-        if(response) {
-          this.videoList = response;
-        }
-        console.log("video list is",this.videoList);
-      })
-    } catch (error) {
-      error.message = `HomeComponent::getAllVideos() - ${error.message}`;
-      throw error
+      route : 'series'
     }
+   ]
+  ngOnInit(): void {
 
   }
 
